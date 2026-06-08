@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TRATTORIA LUCENTE｜京都・中京区の薪火イタリアン。記念日・デート・接待に。旬の京野菜と薪火で仕上げた肉料理、ソムリエ厳選ナチュラルワイン。">
+  <meta property="og:title" content="TRATTORIA LUCENTE｜薪火イタリアン｜京都中京区">
+  <meta property="og:description" content="特別な夜に、薪火の余韻を。京都・中京区の路地奥に佇む薪火イタリアンレストラン。">
+  <meta property="og:type" content="website">
+  <title>TRATTORIA LUCENTE｜薪火イタリアン｜京都中京区</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@200;300;400&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            lu: {
+              black:  '#0e0e0e',
+              bg:     '#131313',
+              card:   '#1a1a1a',
+              dark:   '#080808',
+              gold:   '#c5a35f',
+              gdk:    '#9e7f42',
+              ivory:  '#f2ece0',
+              iv70:   'rgba(242,236,224,0.7)',
+              iv50:   'rgba(242,236,224,0.5)',
+              iv30:   'rgba(242,236,224,0.3)',
+              iv15:   'rgba(242,236,224,0.15)',
+              iv08:   'rgba(242,236,224,0.08)',
+              gld40:  'rgba(197,163,95,0.4)',
+              gld20:  'rgba(197,163,95,0.2)',
+              gld10:  'rgba(197,163,95,0.1)',
+            }
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            serif:   ['"Noto Serif JP"', 'serif'],
+            sans:    ['"Noto Sans JP"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: #0e0e0e;
+      color: #f2ece0;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Photo zoom ── */
+    .zoom { overflow: hidden; }
+    .zoom img {
+      transition: transform 1.2s cubic-bezier(0.16,1,0.3,1);
+      will-change: transform;
+    }
+    .zoom:hover img { transform: scale(1.06); }
+
+    /* ── Scroll reveal ── */
+    .rev {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1),
+                  transform 0.9s cubic-bezier(0.16,1,0.3,1);
+    }
+    .rev.in { opacity: 1; transform: none; }
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.22s; }
+    .d3 { transition-delay: 0.34s; }
+    .d4 { transition-delay: 0.46s; }
+
+    /* ── Buttons ── */
+    .btn-gold {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      background: #c5a35f; color: #0e0e0e;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11.5px; font-weight: 500; letter-spacing: 0.28em;
+      text-transform: uppercase; padding: 14px 36px; min-height: 50px;
+      transition: background .3s, transform .2s;
+    }
+    .btn-gold:hover { background: #9e7f42; transform: translateY(-1px); }
+
+    .btn-outline {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      background: transparent; color: #c5a35f;
+      border: 1px solid rgba(197,163,95,.45);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11.5px; font-weight: 500; letter-spacing: 0.28em;
+      text-transform: uppercase; padding: 13px 36px; min-height: 50px;
+      transition: background .3s, border-color .3s;
+    }
+    .btn-outline:hover { background: rgba(197,163,95,.1); border-color: rgba(197,163,95,.8); }
+
+    .btn-ivory {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      background: transparent; color: rgba(242,236,224,.65);
+      border: 1px solid rgba(242,236,224,.2);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11.5px; letter-spacing: 0.28em;
+      text-transform: uppercase; padding: 13px 36px; min-height: 50px;
+      transition: border-color .3s, color .3s;
+    }
+    .btn-ivory:hover { border-color: rgba(242,236,224,.5); color: #f2ece0; }
+
+    /* ── Section label (online-sta.com style italic en label) ── */
+    .lbl {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 10.5px;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: rgba(197,163,95,.6);
+      margin-bottom: 16px;
+    }
+
+    /* ── Headings ── */
+    .h-sec {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 300;
+      font-size: clamp(1.5rem, 3.5vw, 2.4rem);
+      color: #f2ece0;
+      letter-spacing: 0.04em;
+      line-height: 1.65;
+    }
+    .h-xl {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 200;
+      font-size: clamp(2.2rem, 5.5vw, 4rem);
+      color: #f2ece0;
+      letter-spacing: 0.06em;
+      line-height: 1.5;
+    }
+
+    /* ── Dividers ── */
+    .gdiv   { width: 32px; height: 1px; background: #c5a35f; }
+    .gdiv-c { width: 32px; height: 1px; background: #c5a35f; margin: 0 auto; }
+    .hrule  { height: 1px; background: linear-gradient(90deg, transparent, rgba(197,163,95,.15), transparent); }
+
+    /* ── Service tag (online-sta.com card tag) ── */
+    .stag {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 9px;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      border: 1px solid rgba(197,163,95,.25);
+      color: rgba(197,163,95,.65);
+      padding: 3px 11px;
+      display: inline-block;
+    }
+
+    /* ── Course popular badge ── */
+    .pop-badge {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 9.5px;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      background: #c5a35f;
+      color: #0e0e0e;
+      padding: 4px 14px;
+      font-weight: 500;
+    }
+
+    /* ── Photo hover overlay ── */
+    .pov {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.72) 0%, transparent 55%);
+      display: flex; align-items: flex-end;
+      padding: 18px 16px 14px;
+      opacity: 0;
+      transition: opacity .4s;
+    }
+    .pcard:hover .pov { opacity: 1; }
+
+    /* ── Star rating ── */
+    .stars { color: #c5a35f; font-size: 11px; letter-spacing: 3px; }
+
+    /* ── Header ── */
+    #hdr { transition: background .4s, backdrop-filter .4s; }
+
+    /* ── Nav link ── */
+    .nav-a {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 12px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(242,236,224,.55);
+      transition: color .25s;
+    }
+    .nav-a:hover { color: #c5a35f; }
+
+    /* ── Hero overlay ── */
+    .hero-ov {
+      background: linear-gradient(
+        155deg,
+        rgba(8,8,8,.88) 0%,
+        rgba(10,9,7,.62) 50%,
+        rgba(8,8,8,.42) 100%
+      );
+    }
+
+    /* ── Scroll drip ── */
+    @keyframes drip {
+      0%   { top: -40%; }
+      100% { top: 140%; }
+    }
+  </style>
+</head>
+<body>
+
+
+<!-- ══════════════════════════════
+     HEADER
+══════════════════════════════ -->
+<header id="hdr" class="fixed top-0 left-0 right-0 z-50">
+  <div class="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-16 flex items-center justify-between" style="height:68px;">
+
+    <a href="#" class="flex flex-col leading-none">
+      <span class="font-display italic text-[8.5px] tracking-[0.6em] uppercase" style="color:rgba(197,163,95,.5);">Trattoria</span>
+      <span class="font-display italic text-[20px] tracking-[0.22em] text-lu-ivory leading-tight">Lucente</span>
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-9">
+      <a href="#concept"  class="nav-a">Concept</a>
+      <a href="#course"   class="nav-a">Course</a>
+      <a href="#menu"     class="nav-a">Menu</a>
+      <a href="#space"    class="nav-a">Space</a>
+      <a href="#access"   class="nav-a">Access</a>
+    </nav>
+
+    <a href="#reserve" class="hidden lg:inline-flex btn-outline" style="font-size:10.5px;padding:10px 24px;min-height:38px;">Reserve</a>
+    <a href="tel:0757429186" class="lg:hidden btn-gold" style="font-size:10.5px;padding:10px 22px;min-height:38px;">予約</a>
+  </div>
+  <div class="hrule"></div>
+</header>
+
+
+<!-- ══════════════════════════════
+     1. HERO
+══════════════════════════════ -->
+<section id="hero" class="relative flex items-end" style="min-height:100svh;">
+
+  <img
+    src="images/hero.jpg"
+    alt="TRATTORIA LUCENTE"
+    class="absolute inset-0 w-full h-full object-cover"
+  >
+  <div class="hero-ov absolute inset-0"></div>
+
+  <div class="relative z-10 w-full max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-16 pb-20 sm:pb-28 pt-32">
+    <div class="max-w-[600px]">
+
+      <span class="rev inline-block font-display italic text-[9.5px] tracking-[0.55em] uppercase mb-7" style="color:rgba(197,163,95,.6);">
+        Kyoto · Nakagyo · Wood-fired Italian
+      </span>
+
+      <h1 class="rev d1 h-xl mb-6" style="text-wrap:balance;">
+        特別な夜に、<br>薪火の余韻を。
+      </h1>
+
+      <div class="rev d1 gdiv mb-7"></div>
+
+      <p class="rev d2 text-[13.5px] sm:text-[15px] leading-loose mb-10 max-w-md" style="color:rgba(242,236,224,.55);text-wrap:pretty;">
+        京都・中京区の路地奥に佇む薪火イタリアン。旬の京野菜、薪火の香り、厳選ワインで、大切な人との時間を彩ります。
+      </p>
+
+      <div class="rev d2 flex flex-wrap gap-2 mb-10">
+        <span class="stag">薪火イタリアン</span>
+        <span class="stag">記念日ディナー</span>
+        <span class="stag">半個室あり</span>
+        <span class="stag">京都 中京区</span>
+      </div>
+
+      <div class="rev d3 flex flex-col sm:flex-row gap-3">
+        <a href="#reserve" class="btn-gold w-full sm:w-auto">ネット予約</a>
+        <a href="tel:0757429186" class="btn-ivory w-full sm:w-auto">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          電話予約
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="absolute bottom-8 right-8 flex flex-col items-center gap-2">
+    <div class="w-px h-10 relative overflow-hidden" style="background:rgba(197,163,95,.12);">
+      <div style="position:absolute;width:100%;height:38%;background:rgba(197,163,95,.55);animation:drip 2s ease-in-out infinite;"></div>
+    </div>
+    <span class="font-display italic text-[7.5px] tracking-[0.5em]" style="color:rgba(197,163,95,.3);">scroll</span>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     STATEMENT
+══════════════════════════════ -->
+<section style="background:#0a0a0a;padding:100px 0 96px;">
+  <div class="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-16">
+    <div class="rev max-w-3xl">
+      <span class="lbl">Trattoria Lucente</span>
+      <p class="h-xl" style="text-wrap:balance;">火の香りが、<br>記憶に残る一皿へ。</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     2. CONCEPT
+     (online-sta.com About: large photo + text side by side)
+══════════════════════════════ -->
+<section id="concept" style="background:#131313;">
+  <div class="grid grid-cols-1 lg:grid-cols-2" style="min-height:580px;">
+
+    <div class="zoom rev order-2 lg:order-1" style="min-height:480px;">
+      <img
+        src="images/concept.jpg"
+        alt="コンセプト"
+        class="w-full h-full object-cover"
+        style="min-height:480px;"
+      >
+    </div>
+
+    <div class="flex items-center px-8 sm:px-12 lg:px-16 xl:px-20 py-16 sm:py-20 order-1 lg:order-2">
+      <div class="max-w-lg rev d1">
+        <span class="lbl">Concept</span>
+        <h2 class="h-sec mb-6">旬の素材と薪火の力。<br>一皿に込められた体験。</h2>
+        <div class="gdiv mb-7"></div>
+        <p class="text-[14px] sm:text-[15px] leading-[2.1] mb-5" style="color:rgba(242,236,224,.55);text-wrap:pretty;">
+          薪火でじっくりと火入れする肉料理と、季節ごとに表情を変える京野菜。TRATTORIA LUCENTEでは、食材の香りや温度、ワインとの余韻まで含めて、一皿の体験としてご提供します。
+        </p>
+        <p class="text-[13.5px] leading-[2.1]" style="color:rgba(242,236,224,.3);text-wrap:pretty;">
+          料理だけでなく、空間・サービス・時間の流れまで大切にした、大人のためのレストランです。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     3. THREE FEATURES
+     (online-sta.com style: 縦長写真 + label + heading + text)
+══════════════════════════════ -->
+<section style="background:#0e0e0e;padding:96px 0 100px;">
+  <div class="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-16">
+
+    <div class="flex items-end justify-between mb-14 rev">
+      <div>
+        <span class="lbl">Our Commitment</span>
+        <h2 class="h-sec">三つのこだわり</h2>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
+
+      <div class="rev">
+        <div class="zoom pcard relative mb-6" style="aspect-ratio:3/4;">
+          <img src="images/feature-fire.jpg" alt="薪火" class="w-full h-full object-cover">
+          <div class="pov"><span class="font-display italic text-[11px] tracking-wider" style="color:rgba(242,236,224,.8);">Wood Fire</span></div>
+        </div>
+        <span class="lbl" style="margin-bottom:10px;">Wood Fire</span>
+        <h3 class="font-serif font-light text-lu-ivory text-[17px] mb-3 leading-snug">薪火で引き出す香り</h3>
+        <p class="text-[13px] leading-relaxed" style="color:rgba(242,236,224,.5);">肉や野菜の旨味を、薪火の香ばしさとともに丁寧に引き出します。</p>
+      </div>
+
+      <div class="rev d1">
+        <div class="zoom pcard relative mb-6" style="aspect-ratio:3/4;">
+          <img src="images/feature-vegetable.jpg" alt="京野菜" class="w-full h-full object-cover">
+          <div class="pov"><span class="font-display italic text-[11px] tracking-wider" style="color:rgba(242,236,224,.8);">Kyoto Vegetables</span></div>
+        </div>
+        <span class="lbl" style="margin-bottom:10px;">Kyoto Vegetables</span>
+        <h3 class="font-serif font-light text-lu-ivory text-[17px] mb-3 leading-snug">旬の京野菜</h3>
+        <p class="text-[13px] leading-relaxed" style="color:rgba(242,236,224,.5);">地元京都の食材を中心に、季節感のある一皿をご用意します。</p>
+      </div>
+
+      <div class="rev d2">
+        <div class="zoom pcard relative mb-6" style="aspect-ratio:3/4;">
+          <img src="images/feature-wine.jpg" alt="ナチュラルワイン" class="w-full h-full object-cover">
+          <div class="pov"><span class="font-display italic text-[11px] tracking-wider" style="color:rgba(242,236,224,.8);">Natural Wine</span></div>
+        </div>
+        <span class="lbl" style="margin-bottom:10px;">Natural Wine</span>
+        <h3 class="font-serif font-light text-lu-ivory text-[17px] mb-3 leading-snug">ワインとの調和</h3>
+        <p class="text-[13px] leading-relaxed" style="color:rgba(242,236,224,.5);">料理に合わせて楽しめるナチュラルワインを、ソムリエが厳選しています。</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     4. COURSE
+     (online-sta.com store card pattern: photo + tags + price + CTA)
+══════════════════════════════ -->
+<section id="course" style="background:#131313;padding:96px 0 100px;">
+  <div class="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-16">
+
+    <div class="flex items-end justify-between mb-14 rev">
+      <div>
+        <span class="lbl">Course Menu</span>
+        <h2 class="h-sec">おすすめコース</h2>
+      </div>
+      <span class="hidden sm:block font-display italic text-[10.5px] tracking-widest" style="color:rgba(242,236,224,.28);">Tax &amp; Service included</span>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 items-end">
+
+      <!-- Standard -->
+      <div class="rev flex flex-col" style="background:#1a1a1a;border:1px solid rgba(197,163,95,.12);padding:32px 30px;">
+        <span class="lbl" style="margin-bottom:14px;">Standard</span>
+        <div class="flex-1">
+          <h3 class="font-display italic text-[1.75rem] text-lu-ivory leading-none mb-1">Luce Course</h3>
+          <div style="height:1px;background:rgba(197,163,95,.12);margin:20px 0;"></div>
+          <p class="text-[13px] leading-relaxed mb-5" style="color:rgba(242,236,224,.5);">初めての方におすすめ。前菜、パスタ、薪火料理、デザートまでのスタンダードコース。</p>
+          <div class="flex flex-wrap gap-1.5 mb-6">
+            <span class="stag">前菜</span>
+            <span class="stag">パスタ</span>
+            <span class="stag">薪火料理</span>
+            <span class="stag">デザート</span>
+          </div>
+        </div>
+        <div class="mt-auto">
+          <p class="font-display italic text-lu-gold text-[3rem] font-light leading-none mb-6">¥8,800</p>
+          <a href="#reserve" class="btn-outline w-full" style="font-size:10.5px;">詳細・ご予約</a>
+        </div>
+      </div>
+
+      <!-- Anniversary (featured) -->
+      <div class="rev d1 relative flex flex-col md:-translate-y-6" style="background:#1a1a1a;border:1px solid rgba(197,163,95,.5);padding:32px 30px;box-shadow:0 0 60px rgba(197,163,95,.06);">
+        <div class="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap">
+          <span class="pop-badge">人気 No.1</span>
+        </div>
+        <span class="lbl mt-2" style="color:rgba(197,163,95,.85);margin-bottom:14px;">Anniversary · Date</span>
+        <div class="flex-1">
+          <h3 class="font-display italic text-[1.75rem] text-lu-ivory leading-none mb-1">Anniversary Course</h3>
+          <div style="height:1px;background:rgba(197,163,95,.25);margin:20px 0;"></div>
+          <p class="text-[13px] leading-relaxed mb-5" style="color:rgba(242,236,224,.5);">記念日・デートに。乾杯ドリンク、旬の前菜、特選薪火料理、メッセージプレート付き。</p>
+          <div class="flex flex-wrap gap-1.5 mb-6">
+            <span class="stag">乾杯ドリンク</span>
+            <span class="stag">特選薪火料理</span>
+            <span class="stag">メッセージ付</span>
+          </div>
+        </div>
+        <div class="mt-auto">
+          <p class="font-display italic text-lu-gold text-[3rem] font-light leading-none mb-6">¥13,200</p>
+          <a href="#reserve" class="btn-gold w-full" style="font-size:10.5px;">詳細・ご予約</a>
+        </div>
+      </div>
+
+      <!-- Chef's Special -->
+      <div class="rev d2 flex flex-col" style="background:#1a1a1a;border:1px solid rgba(197,163,95,.12);padding:32px 30px;">
+        <span class="lbl" style="margin-bottom:14px;">Entertaining · Special</span>
+        <div class="flex-1">
+          <h3 class="font-display italic text-[1.75rem] text-lu-ivory leading-none mb-1">Chef's Special Course</h3>
+          <div style="height:1px;background:rgba(197,163,95,.12);margin:20px 0;"></div>
+          <p class="text-[13px] leading-relaxed mb-5" style="color:rgba(242,236,224,.5);">接待・特別な会食に。厳選食材を使用したシェフおまかせのフルコース。</p>
+          <div class="flex flex-wrap gap-1.5 mb-6">
+            <span class="stag">フルコース</span>
+            <span class="stag">ワインペアリング</span>
+            <span class="stag">要相談</span>
+          </div>
+        </div>
+        <div class="mt-auto">
+          <p class="font-display italic text-lu-gold text-[3rem] font-light leading-none mb-6">¥19,800</p>
+          <a href="#reserve" class="btn-outline w-full" style="font-size:10.5px;">詳細・ご予約</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     5. MENU GALLERY
+══════════════════════════════ -->
+<section id="menu" style="background:#0e0e0e;padding:96px 0 100px;">
+  <div class="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-16">
+
+    <div class="flex items-end justify-between mb-14 rev">
+      <div>
+        <span class="lbl">Menu Highlights</span>
+        <h2 class="h-sec">メニューハイライト</h2>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
+
+      <div class="rev zoom pcard relative" style="aspect-ratio:3/4;">
+        <img src="images/menu-wagyu.jpg" alt="薪火で焼き上げる黒毛和牛" class="w-full h-full object-cover">
+        <div class="pov"><span class="font-sans text-[11.5px] font-light tracking-wider" style="color:rgba(242,236,224,.8);">薪火で焼き上げる黒毛和牛</span></div>
+      </div>
+
+      <div class="rev d1 zoom pcard relative" style="aspect-ratio:3/4;">
+        <img src="images/menu-appetizer.jpg" alt="京野菜の前菜盛り合わせ" class="w-full h-full object-cover">
+        <div class="pov"><span class="font-sans text-[11.5px] font-light tracking-wider" style="color:rgba(242,236,224,.8);">京野菜の前菜盛り合わせ</span></div>
+      </div>
+
+      <div class="rev d2 zoom pcard relative" style="aspect-ratio:3/4;">
+        <img src="images/menu-pasta.jpg" alt="季節の手打ちパスタ" class="w-full h-full object-cover">
+        <div class="pov"><span class="font-sans text-[11.5px] font-light tracking-wider" style="color:rgba(242,236,224,.8);">季節の手打ちパスタ</span></div>
+      </div>
+
+      <div class="rev zoom pcard relative" style="aspect-ratio:3/4;">
+        <img src="images/menu-wine.jpg" alt="ナチュラルワイン" class="w-full h-full object-cover">
+        <div class="pov"><span class="font-sans text-[11.5px] font-light tracking-wider" style="color:rgba(242,236,224,.8);">ナチュラルワイン</span></div>
+      </div>
+
+      <div class="rev d1 zoom pcard relative" style="aspect-ratio:3/4;">
+        <img src="images/menu-dessert.jpg" alt="記念日デザートプレート" class="w-full h-full object-cover">
+        <div class="pov"><span class="font-sans text-[11.5px] font-light tracking-wider" style="color:rgba(242,236,224,.8);">記念日デザートプレート</span></div>
+      </div>
+
+      <div class="rev d2 zoom pcard relative" style="aspect-ratio:3/4;">
+        <img src="images/menu-dolce.jpg" alt="シェフ特製ドルチェ" class="w-full h-full object-cover">
+        <div class="pov"><span class="font-sans text-[11.5px] font-light tracking-wider" style="color:rgba(242,236,224,.8);">シェフ特製ドルチェ</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     6. SPACE
+     (online-sta.com Store section pattern:
+      各店舗を交互レイアウトで個別紹介 + service tags)
+══════════════════════════════ -->
+<section id="space" style="background:#131313;">
+
+  <div class="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-16 pt-20 sm:pt-28 pb-10 rev">
+    <span class="lbl">Space</span>
+    <h2 class="h-sec">空間のご案内</h2>
+  </div>
+
+  <!-- 半個室 ── text left / photo right -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 items-stretch" style="border-top:1px solid rgba(242,236,224,.05);">
+    <div class="flex items-center px-6 sm:px-10 lg:px-16 xl:px-20 py-14 sm:py-16 rev">
+      <div class="max-w-md">
+        <div class="flex items-baseline gap-3 mb-6">
+          <span class="lbl" style="margin-bottom:0;">Private Room</span>
+          <span class="font-display italic text-[10px] tracking-wider" style="color:rgba(242,236,224,.22);">2〜6名様</span>
+        </div>
+        <h3 class="font-serif font-light text-lu-ivory text-[1.65rem] sm:text-[1.85rem] mb-4 leading-snug">半個室</h3>
+        <div class="gdiv mb-5"></div>
+        <p class="text-[14px] leading-[2.1] mb-6" style="color:rgba(242,236,224,.5);">記念日や接待に最適な落ち着いた空間。周囲を気にせず特別なひとときをお過ごしいただけます。</p>
+        <div class="flex flex-wrap gap-1.5">
+          <span class="stag">記念日</span>
+          <span class="stag">接待</span>
+          <span class="stag">2〜6名</span>
+        </div>
+      </div>
+    </div>
+    <div class="zoom rev d1" style="min-height:420px;">
+      <img src="images/space-private.jpg" alt="半個室" class="w-full h-full object-cover" style="min-height:420px;">
+    </div>
+  </div>
+
+  <!-- カウンター席 ── photo left / text right -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 items-stretch" style="border-top:1px solid rgba(242,236,224,.05);">
+    <div class="zoom rev order-2 lg:order-1" style="min-height:420px;">
+      <img src="images/space-counter.jpg" alt="カウンター席" class="w-full h-full object-cover" style="min-height:420px;">
+    </div>
+    <div class="flex items-center px-6 sm:px-10 lg:px-16 xl:px-20 py-14 sm:py-16 order-1 lg:order-2 rev d1" style="background:#191919;">
+      <div class="max-w-md">
+        <div class="flex items-baseline gap-3 mb-6">
+          <span class="lbl" style="margin-bottom:0;">Counter</span>
+          <span class="font-display italic text-[10px] tracking-wider" style="color:rgba(242,236,224,.22);">1〜2名様</span>
+        </div>
+        <h3 class="font-serif font-light text-lu-ivory text-[1.65rem] sm:text-[1.85rem] mb-4 leading-snug">カウンター席</h3>
+        <div class="gdiv mb-5"></div>
+        <p class="text-[14px] leading-[2.1] mb-6" style="color:rgba(242,236,224,.5);">薪火の臨場感を間近で楽しめるライブ感のある席。シェフの技を目の前でお楽しみください。</p>
+        <div class="flex flex-wrap gap-1.5">
+          <span class="stag">ひとり</span>
+          <span class="stag">カップル</span>
+          <span class="stag">1〜2名</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- テーブル席 ── text left / photo right -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 items-stretch" style="border-top:1px solid rgba(242,236,224,.05);">
+    <div class="flex items-center px-6 sm:px-10 lg:px-16 xl:px-20 py-14 sm:py-16 rev">
+      <div class="max-w-md">
+        <div class="flex items-baseline gap-3 mb-6">
+          <span class="lbl" style="margin-bottom:0;">Table</span>
+          <span class="font-display italic text-[10px] tracking-wider" style="color:rgba(242,236,224,.22);">2〜8名様</span>
+        </div>
+        <h3 class="font-serif font-light text-lu-ivory text-[1.65rem] sm:text-[1.85rem] mb-4 leading-snug">テーブル席</h3>
+        <div class="gdiv mb-5"></div>
+        <p class="text-[14px] leading-[2.1] mb-6" style="color:rgba(242,236,224,.5);">友人同士や大人の食事会に使いやすい席。開放感のある空間で、ゆったりとお食事をお楽しみください。</p>
+        <div class="flex flex-wrap gap-1.5">
+          <span class="stag">グループ</span>
+          <span class="stag">食事会</span>
+          <span class="stag">2〜8名</span>
+        </div>
+      </div>
+    </div>
+    <div class="zoom rev d1" style="min-height:420px;">
+      <img src="images/space-table.jpg" alt="テーブル席" class="w-full h-full object-cover" style="min-height:420px;">
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════════════
+     7. VOICE
+══════════════════════════════ -->
+<section id="voice" style="background:#0e0e0e;padding:96px 0 100px;">
+  <div class="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-16">
+
+    <div class="flex items-end justify-between mb-14 rev">
+      <div>
+        <span class="lbl">Customer Voice</span>
+        <h2 class="h-sec">お客様の声</h2>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+
+      <div class="rev flex flex-col" style="background:#1a1a1a;border:1px solid rgba(197,163,95,.12);padding:28px 28px 24px;">
+        <span class="font-display italic block mb-3 leading-none" style="font-size:3.5rem;color:rgba(197,163,95,.18);">"</span>
+        <div class="stars mb-3">★★★★★</div>
+        <p class="text-[13.5px] leading-[2] flex-1 mb-6" style="color:rgba(242,236,224,.5);text-wrap:pretty;">
+          記念日のディナーで利用しました。料理も空間も特別感があり、ゆっくり過ごせました。薪火の香りが食欲を刺激して、とても印象的でした。
+        </p>
+        <div style="border-top:1px solid rgba(197,163,95,.1);padding-top:16px;">
+          <p class="font-serif font-light text-lu-ivory text-sm mb-2">S.T. 様</p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="stag">30代女性</span>
+            <span class="stag">記念日利用</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rev d1 flex flex-col" style="background:#1a1a1a;border:1px solid rgba(197,163,95,.12);padding:28px 28px 24px;">
+        <span class="font-display italic block mb-3 leading-none" style="font-size:3.5rem;color:rgba(197,163,95,.18);">"</span>
+        <div class="stars mb-3">★★★★★</div>
+        <p class="text-[13.5px] leading-[2] flex-1 mb-6" style="color:rgba(242,236,224,.5);text-wrap:pretty;">
+          落ち着いた雰囲気で、料理の説明も丁寧。大切な会食でも安心して利用できるお店です。ワインのペアリングも素晴らしかった。
+        </p>
+        <div style="border-top:1px solid rgba(197,163,95,.1);padding-top:16px;">
+          <p class="font-serif font-light text-lu-ivory text-sm mb-2">K.N. 様</p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="stag">40代男性</span>
+            <span class="stag">接待利用</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rev d2 flex flex-col" style="background:#1a1a1a;border:1px solid rgba(197,163,95,.12);padding:28px 28px 24px;">
+        <span class="font-display italic block mb-3 leading-none" style="font-size:3.5rem;color:rgba(197,163,95,.18);">"</span>
+        <div class="stars mb-3">★★★★★</div>
+        <p class="text-[13.5px] leading-[2] flex-1 mb-6" style="color:rgba(242,236,224,.5);text-wrap:pretty;">
+          薪火の香りが印象的で、ワインとの相性も良かったです。また季節を変えて伺いたいです。京都の隠れ家らしい雰囲気も素敵でした。
+        </p>
+        <div style="border-top:1px solid rgba(197,163,95,.1);padding-top:16px;">
+          <p class="font-serif font-light text-lu-ivory text-sm mb-2">M.Y. 様</p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="stag">50代女性</span>
+            <span class="stag">友人との食事</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     8. ACCESS
+══════════════════════════════ -->
+<section id="access" style="background:#131313;padding:96px 0 100px;">
+  <div class="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-16">
+
+    <div class="mb-14 rev">
+      <span class="lbl">Access</span>
+      <h2 class="h-sec">店舗情報・アクセス</h2>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+      <!-- Info table -->
+      <div class="rev" style="background:#1a1a1a;border:1px solid rgba(197,163,95,.12);padding:36px 32px;">
+        <p class="font-display italic text-[10px] tracking-[0.45em] uppercase mb-8" style="color:rgba(197,163,95,.55);">Restaurant Information</p>
+        <dl>
+          <div class="flex gap-6 py-4" style="border-bottom:1px solid rgba(242,236,224,.06);">
+            <dt class="font-display italic text-[9px] tracking-wider uppercase w-20 flex-shrink-0 pt-0.5" style="color:rgba(242,236,224,.3);">Name</dt>
+            <dd class="font-serif font-light text-lu-ivory text-[14px] leading-snug">TRATTORIA LUCENTE<br><span class="text-[12px]" style="color:rgba(242,236,224,.3);">トラットリア ルチェンテ</span></dd>
+          </div>
+          <div class="flex gap-6 py-4" style="border-bottom:1px solid rgba(242,236,224,.06);">
+            <dt class="font-display italic text-[9px] tracking-wider uppercase w-20 flex-shrink-0 pt-0.5" style="color:rgba(242,236,224,.3);">Address</dt>
+            <dd class="text-[13.5px] leading-relaxed" style="color:rgba(242,236,224,.5);">〒604-8015<br>京都府京都市中京区<br>先斗町通四条上る鍋屋町214-3<br>LUCENTEビル2F</dd>
+          </div>
+          <div class="flex gap-6 py-4" style="border-bottom:1px solid rgba(242,236,224,.06);">
+            <dt class="font-display italic text-[9px] tracking-wider uppercase w-20 flex-shrink-0 pt-0.5" style="color:rgba(242,236,224,.3);">Access</dt>
+            <dd class="text-[13.5px] leading-relaxed" style="color:rgba(242,236,224,.5);">阪急京都河原町駅 徒歩4分<br>京阪祇園四条駅 徒歩6分</dd>
+          </div>
+          <div class="flex gap-6 py-4" style="border-bottom:1px solid rgba(242,236,224,.06);">
+            <dt class="font-display italic text-[9px] tracking-wider uppercase w-20 flex-shrink-0 pt-0.5" style="color:rgba(242,236,224,.3);">Tel</dt>
+            <dd><a href="tel:0757429186" class="font-display text-[1.35rem] text-lu-gold hover:text-lu-gdk transition-colors tracking-widest">075-742-9186</a></dd>
+          </div>
+          <div class="flex gap-6 py-4" style="border-bottom:1px solid rgba(242,236,224,.06);">
+            <dt class="font-display italic text-[9px] tracking-wider uppercase w-20 flex-shrink-0 pt-0.5" style="color:rgba(242,236,224,.3);">Hours</dt>
+            <dd class="text-[13.5px] leading-relaxed" style="color:rgba(242,236,224,.5);">
+              <span class="font-display italic text-[9.5px] tracking-wider block" style="color:rgba(197,163,95,.55);">Lunch</span>
+              11:30〜15:00（L.O. 14:00）
+              <span class="font-display italic text-[9.5px] tracking-wider block mt-1.5" style="color:rgba(197,163,95,.55);">Dinner</span>
+              17:30〜23:00（L.O. 22:00）
+            </dd>
+          </div>
+          <div class="flex gap-6 py-4">
+            <dt class="font-display italic text-[9px] tracking-wider uppercase w-20 flex-shrink-0 pt-0.5" style="color:rgba(242,236,224,.3);">Closed</dt>
+            <dd class="text-[13.5px]" style="color:rgba(242,236,224,.5);">毎週火曜日</dd>
+          </div>
+        </dl>
+      </div>
+
+      <!-- Map -->
+      <div class="rev d1 flex flex-col" style="background:#1a1a1a;border:1px solid rgba(197,163,95,.12);">
+        <div class="zoom flex-1">
+          <img
+            src="images/map.jpg"
+            alt="アクセスマップ"
+            class="w-full h-full object-cover"
+            style="min-height:280px;"
+          >
+        </div>
+        <div class="p-5">
+          <a
+            href="https://maps.google.com/?q=京都府京都市中京区先斗町通四条上る鍋屋町214-3"
+            target="_blank" rel="noopener noreferrer"
+            class="btn-outline w-full" style="font-size:10.5px;min-height:44px;"
+          >Google マップで開く</a>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="rev font-display italic tracking-wider text-[10.5px] text-center mt-8" style="color:rgba(242,236,224,.22);">
+      ※ 専用駐車場はございません。近隣のコインパーキングをご利用ください。
+    </p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     9. RESERVE / CTA
+══════════════════════════════ -->
+<section id="reserve" class="relative py-28 sm:py-40 overflow-hidden" style="background:#080808;">
+
+  <img
+    src="images/cta.jpg"
+    alt=""
+    class="absolute inset-0 w-full h-full object-cover"
+    style="opacity:.18;"
+  >
+  <div class="absolute inset-0" style="background:linear-gradient(160deg,rgba(8,8,8,.97) 0%,rgba(8,8,8,.88) 100%);"></div>
+  <div class="absolute top-0 left-0 right-0 hrule"></div>
+
+  <div class="relative z-10 max-w-2xl mx-auto px-6 sm:px-10 text-center rev">
+    <span class="lbl" style="text-align:center;">Reserve a Table</span>
+    <h2 class="h-xl mb-5" style="text-wrap:balance;">大切な夜を、<br>心に残る一皿とともに。</h2>
+    <div class="gdiv-c mb-8"></div>
+    <p class="text-[13.5px] sm:text-[15px] leading-loose mb-12 max-w-xl mx-auto" style="color:rgba(242,236,224,.5);text-wrap:pretty;">
+      記念日・デート・接待など、シーンに合わせたお席とコースをご提案いたします。
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="tel:0757429186" class="btn-gold w-full sm:w-auto">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+        電話で予約する
+      </a>
+      <a href="#access" class="btn-outline w-full sm:w-auto">アクセスを確認する</a>
+    </div>
+    <p class="font-display italic tracking-widest text-[10px] mt-8" style="color:rgba(242,236,224,.15);">
+      Lunch 11:30〜15:00 &nbsp;|&nbsp; Dinner 17:30〜23:00 &nbsp;|&nbsp; 火曜定休
+    </p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     FOOTER
+══════════════════════════════ -->
+<footer style="background:#060606;border-top:1px solid rgba(197,163,95,.08);" class="py-14">
+  <div class="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-16">
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8 mb-10">
+      <div>
+        <p class="font-display italic text-[8.5px] tracking-[0.6em] uppercase mb-1" style="color:rgba(197,163,95,.45);">Trattoria</p>
+        <p class="font-display italic text-[22px] tracking-[0.22em] text-lu-ivory mb-4">Lucente</p>
+        <p class="font-display italic text-[10.5px] tracking-wider" style="color:rgba(242,236,224,.3);">京都府京都市中京区 先斗町通四条上る鍋屋町214-3</p>
+        <p class="font-display italic text-[10.5px] tracking-wider mt-1" style="color:rgba(242,236,224,.3);">Tel. 075-742-9186</p>
+      </div>
+      <nav class="flex flex-wrap gap-x-7 gap-y-3">
+        <a href="#concept"  class="nav-a">Concept</a>
+        <a href="#course"   class="nav-a">Course</a>
+        <a href="#menu"     class="nav-a">Menu</a>
+        <a href="#space"    class="nav-a">Space</a>
+        <a href="#voice"    class="nav-a">Voice</a>
+        <a href="#access"   class="nav-a">Access</a>
+        <a href="#reserve"  class="nav-a" style="color:rgba(197,163,95,.55);">Reserve</a>
+      </nav>
+    </div>
+    <div class="hrule mb-6"></div>
+    <p class="font-display italic text-[9px] tracking-[0.3em] text-center" style="color:rgba(242,236,224,.15);">
+      &copy; 2024 Trattoria Lucente. All Rights Reserved. &nbsp;|&nbsp; This is a fictional portfolio site.
+    </p>
+  </div>
+</footer>
+
+
+<script>
+  const hdr = document.getElementById('hdr');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      hdr.style.background = 'rgba(7,7,7,0.95)';
+      hdr.style.backdropFilter = 'blur(14px)';
+    } else {
+      hdr.style.background = 'transparent';
+      hdr.style.backdropFilter = '';
+    }
+  }, { passive: true });
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.07, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.rev').forEach(el => obs.observe(el));
+
+  document.querySelectorAll('#hero .rev').forEach((el, i) => {
+    setTimeout(() => el.classList.add('in'), 200 + i * 130);
+  });
+</script>
+
+</body>
+</html>
