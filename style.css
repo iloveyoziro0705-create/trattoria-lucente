@@ -1,0 +1,872 @@
+/* ============================================================
+   trattoria lucente — style.css
+   薪火イタリアン 恵比寿 / 完全予約制
+   Design Tokens / Reset / Components / Sections
+   ============================================================ */
+
+/* ============================================================
+   0. Design Tokens
+   ============================================================ */
+:root {
+  /* Colors — 黒 / チャコール / ゴールド / 木目 */
+  --clr-black:        #0A0908;
+  --clr-charcoal:     #15130F;
+  --clr-charcoal-mid: #1F1C17;
+  --clr-charcoal-lt:  #29251E;
+  --clr-white:        #FAF7F2;
+  --clr-cream:        #F2EDE4;
+  --clr-text:         #F2EDE4;
+  --clr-text-sub:     #B8AFA2;
+  --clr-text-dim:     #968D80;
+  --clr-gold:         #C9A96E;
+  --clr-gold-light:   #E3C68C;
+  --clr-gold-dark:    #9C7B45;
+  --clr-wood:         #4A3423;
+  --clr-border:       rgba(201,169,110,0.16);
+  --clr-border-lt:    rgba(242,237,228,0.10);
+  --clr-overlay:      rgba(10,9,8,0.55);
+  --clr-overlay-dark: rgba(10,9,8,0.78);
+
+  /* Typography */
+  --font-serif:  'Cormorant Garamond', 'Shippori Mincho', serif;
+  --font-jp:     'Shippori Mincho', 'Noto Serif JP', serif;
+  --font-sans:   'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Font sizes (fluid) */
+  --fs-xs:   0.75rem;
+  --fs-sm:   0.875rem;
+  --fs-base: 1rem;
+  --fs-md:   1.125rem;
+  --fs-lg:   clamp(1.25rem, 1.15rem + 0.4vw, 1.5rem);
+  --fs-xl:   clamp(1.5rem, 1.3rem + 0.8vw, 2rem);
+  --fs-2xl:  clamp(1.875rem, 1.5rem + 1.5vw, 2.75rem);
+  --fs-3xl:  clamp(2.25rem, 1.7rem + 2.2vw, 3.5rem);
+  --fs-4xl:  clamp(2.75rem, 1.9rem + 3.4vw, 5rem);
+  --fs-hero: clamp(2.5rem, 1.6rem + 4vw, 5.5rem);
+
+  /* Spacing */
+  --gutter:      clamp(1.25rem, 4vw, 3rem);
+  --section-py:  clamp(5rem, 8vw, 9rem);
+  --sp-2: 0.5rem;  --sp-3: 0.75rem; --sp-4: 1rem;
+  --sp-6: 1.5rem;  --sp-8: 2rem;    --sp-10: 2.5rem;
+  --sp-12: 3rem;   --sp-16: 4rem;   --sp-20: 5rem;
+
+  /* Radius / Motion */
+  --radius-sm: 4px;
+  --radius-md: 10px;
+  --radius-lg: 18px;
+  --dur-fast: 0.2s;
+  --dur-base: 0.4s;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --container-max: 1240px;
+}
+
+/* ============================================================
+   1. Reset
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--clr-black);
+  color: var(--clr-text);
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+
+a { color: inherit; text-decoration: none; transition: opacity var(--dur-fast) var(--ease); }
+a:hover { opacity: 0.78; }
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--clr-gold);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+ul, ol { list-style: none; }
+
+button { cursor: pointer; border: none; background: none; font: inherit; color: inherit; }
+
+details summary { cursor: pointer; list-style: none; }
+details summary::-webkit-details-marker { display: none; }
+
+h1, h2, h3, h4 { font-weight: 500; line-height: 1.3; }
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  z-index: 1000;
+  padding: 0.75rem 1.5rem;
+  background: var(--clr-gold);
+  color: var(--clr-black);
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  transition: top var(--dur-fast) var(--ease);
+}
+.skip-link:focus { top: 0; }
+
+/* ============================================================
+   2. Utility
+   ============================================================ */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.section { padding: var(--section-py) 0; position: relative; }
+.section--alt { background: var(--clr-charcoal); }
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--fs-md);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--clr-gold);
+  margin-bottom: var(--sp-4);
+}
+.label::before { content: ''; width: 32px; height: 1px; background: var(--clr-gold); }
+
+.section-title {
+  font-family: var(--font-jp);
+  font-size: var(--fs-3xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  margin-bottom: var(--sp-6);
+}
+
+.section-lead {
+  color: var(--clr-text-sub);
+  font-size: var(--fs-md);
+  max-width: 640px;
+  line-height: 2;
+}
+
+.section-head {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto var(--sp-16);
+}
+.section-head .section-lead { margin: 0 auto; }
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 60px;
+  padding: 0 2.25rem;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: var(--fs-md);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  transition: all var(--dur-fast) var(--ease);
+}
+
+.btn--gold {
+  background: linear-gradient(135deg, var(--clr-gold-light), var(--clr-gold-dark));
+  color: var(--clr-black);
+  box-shadow: 0 8px 24px rgba(201,169,110,0.25);
+}
+.btn--gold:hover { opacity: 1; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(201,169,110,0.35); }
+
+.btn--ghost {
+  background: transparent;
+  color: var(--clr-white);
+  border: 1px solid rgba(242,237,228,0.35);
+}
+.btn--ghost:hover { opacity: 1; border-color: var(--clr-gold); color: var(--clr-gold-light); }
+
+.btn--outline-gold {
+  background: transparent;
+  border: 1px solid var(--clr-gold);
+  color: var(--clr-gold-light);
+}
+.btn--outline-gold:hover { opacity: 1; background: rgba(201,169,110,0.1); }
+
+.btn--full { width: 100%; }
+.btn--sm { height: 48px; padding: 0 1.5rem; font-size: var(--fs-sm); }
+
+/* Badge */
+.badge-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--fs-sm);
+  color: var(--clr-text-sub);
+}
+.badge-check::before {
+  content: '✓';
+  color: var(--clr-gold);
+  font-weight: 700;
+}
+
+/* Reveal-on-scroll (progressive enhancement; CSS-only fallback = visible) */
+.r { opacity: 1; }
+.js-ready .r {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+}
+.js-ready .r.in-view { opacity: 1; transform: translateY(0); }
+.js-ready .r.d1 { transition-delay: 0.1s; }
+.js-ready .r.d2 { transition-delay: 0.2s; }
+.js-ready .r.d3 { transition-delay: 0.3s; }
+
+/* ============================================================
+   3. Header / Nav — NAV-005 Minimal Header（改）
+   ============================================================ */
+.header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  padding: 22px 0;
+  background: transparent;
+  transition: background var(--dur-base) var(--ease), padding var(--dur-base) var(--ease), box-shadow var(--dur-base) var(--ease);
+}
+.header.is-scrolled {
+  background: rgba(10,9,8,0.88);
+  backdrop-filter: blur(12px);
+  padding: 14px 0;
+  box-shadow: 0 1px 0 var(--clr-border);
+}
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-6);
+}
+.header__logo {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.1rem, 1rem + 0.5vw, 1.5rem);
+  letter-spacing: 0.03em;
+  color: var(--clr-white);
+  line-height: 1;
+}
+.header__logo span { display: block; font-family: var(--font-sans); font-style: normal; font-size: 10px; letter-spacing: 0.28em; color: var(--clr-gold); margin-top: 4px; text-transform: uppercase; }
+
+.header__nav { display: none; }
+.header__nav-list { display: flex; gap: var(--sp-8); }
+.header__nav-link {
+  font-size: var(--fs-sm);
+  letter-spacing: 0.04em;
+  color: var(--clr-text-sub);
+}
+.header__nav-link:hover { color: var(--clr-gold-light); opacity: 1; }
+
+.header__cta { display: none; }
+
+.header__hamburger {
+  width: 44px; height: 44px;
+  display: grid; place-items: center;
+  gap: 5px;
+}
+.header__hamburger span {
+  display: block; width: 24px; height: 1.5px; background: var(--clr-white);
+  transition: transform var(--dur-fast) var(--ease), opacity var(--dur-fast) var(--ease);
+}
+.header__hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.header__hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.header__hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+@media (min-width: 1024px) {
+  .header__nav { display: block; }
+  .header__cta { display: inline-flex; }
+  .header__hamburger { display: none; }
+}
+
+.mobile-drawer {
+  position: fixed;
+  inset: 0 0 0 auto;
+  width: min(84vw, 380px);
+  height: 100dvh;
+  background: var(--clr-charcoal);
+  border-left: 1px solid var(--clr-border);
+  z-index: 300;
+  padding: calc(22px + 44px) var(--gutter) var(--sp-10);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-10);
+  transform: translateX(100%);
+  transition: transform var(--dur-base) var(--ease);
+  overflow-y: auto;
+}
+.mobile-drawer[data-open="true"] { transform: translateX(0); }
+.mobile-drawer__list { display: flex; flex-direction: column; gap: var(--sp-6); }
+.mobile-drawer__link { font-size: var(--fs-lg); font-family: var(--font-jp); color: var(--clr-white); }
+
+.mobile-drawer__overlay {
+  position: fixed; inset: 0; z-index: 290;
+  background: rgba(10,9,8,0.6);
+  opacity: 0; pointer-events: none;
+  transition: opacity var(--dur-base) var(--ease);
+}
+.mobile-drawer__overlay[data-open="true"] { opacity: 1; pointer-events: auto; }
+
+/* ============================================================
+   4. Hero — 独自設計（フルブリード料理写真 + Apple的ミニマルコピー）
+   ============================================================ */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background: var(--clr-black);
+}
+.hero__media {
+  position: absolute; inset: 0;
+  z-index: 0;
+}
+.hero__media img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.hero__media::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(10,9,8,0.35) 0%, rgba(10,9,8,0.35) 40%, rgba(10,9,8,0.92) 100%);
+}
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding-bottom: clamp(3rem, 8vw, 6rem);
+}
+.hero__eyebrow {
+  font-size: var(--fs-sm);
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--clr-gold-light);
+  margin-bottom: var(--sp-6);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.hero__eyebrow::before { content: ''; width: 36px; height: 1px; background: var(--clr-gold); }
+
+.hero__title {
+  font-family: var(--font-jp);
+  font-size: var(--fs-hero);
+  line-height: 1.25;
+  color: var(--clr-white);
+  max-width: 16ch;
+  margin-bottom: var(--sp-6);
+}
+
+.hero__sub {
+  font-size: var(--fs-md);
+  color: var(--clr-text-sub);
+  max-width: 480px;
+  line-height: 1.9;
+  margin-bottom: var(--sp-10);
+}
+
+.hero__actions { display: flex; flex-wrap: wrap; gap: var(--sp-4); margin-bottom: var(--sp-12); }
+
+.hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-8);
+  padding-top: var(--sp-8);
+  border-top: 1px solid var(--clr-border-lt);
+}
+.hero__meta-item { font-size: var(--fs-xs); color: var(--clr-text-dim); letter-spacing: 0.05em; }
+.hero__meta-item strong { display: block; font-family: var(--font-serif); font-size: var(--fs-md); color: var(--clr-gold-light); font-weight: 500; margin-bottom: 2px; }
+
+.hero__scroll {
+  position: absolute;
+  right: var(--gutter);
+  bottom: var(--sp-10);
+  z-index: 1;
+  display: none;
+  writing-mode: vertical-rl;
+  align-items: center;
+  gap: 14px;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.2em;
+  color: var(--clr-text-dim);
+}
+.hero__scroll-line { width: 1px; height: 50px; background: linear-gradient(var(--clr-gold), transparent); }
+
+@media (min-width: 768px) {
+  .hero__scroll { display: flex; }
+}
+
+/* ============================================================
+   5. Concept — FEATURE-035（フルワイド画像＋オーバーレイ）+ FEATURE-041（選ばれる理由）
+   ============================================================ */
+.concept-visual {
+  position: relative;
+  height: clamp(360px, 55vw, 640px);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: var(--sp-20);
+}
+.concept-visual img { width: 100%; height: 100%; object-fit: cover; }
+.concept-visual::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(0deg, rgba(10,9,8,0.85) 0%, rgba(10,9,8,0.15) 55%, transparent 100%);
+}
+.concept-visual__text {
+  position: absolute;
+  left: var(--sp-10); right: var(--sp-10); bottom: var(--sp-10);
+  z-index: 1;
+  max-width: 640px;
+}
+.concept-visual__text .label { color: var(--clr-gold-light); }
+.concept-visual__quote {
+  font-family: var(--font-jp);
+  font-size: var(--fs-2xl);
+  color: var(--clr-white);
+  line-height: 1.5;
+}
+
+.strengths {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-8);
+}
+.strength-card {
+  padding: var(--sp-10) var(--sp-6);
+  text-align: center;
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  background: var(--clr-charcoal-mid);
+}
+.strength-card__icon {
+  width: 56px; height: 56px;
+  margin: 0 auto var(--sp-6);
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: rgba(201,169,110,0.1);
+  border: 1px solid var(--clr-border);
+  color: var(--clr-gold);
+  font-size: 22px;
+}
+.strength-card__title { font-family: var(--font-jp); font-size: var(--fs-lg); color: var(--clr-white); margin-bottom: var(--sp-3); }
+.strength-card__text { font-size: var(--fs-sm); color: var(--clr-text-sub); line-height: 1.85; }
+
+@media (min-width: 768px) {
+  .strengths { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ============================================================
+   6. Chef — PROFILE-048（料理人・シェフ こだわり表現型）
+   ============================================================ */
+.chef-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-12);
+  align-items: center;
+}
+.chef-visual {
+  position: relative;
+  aspect-ratio: 4/5;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.chef-visual img { width: 100%; height: 100%; object-fit: cover; }
+.chef-quote {
+  font-family: var(--font-jp);
+  font-size: var(--fs-xl);
+  color: var(--clr-gold-light);
+  line-height: 1.7;
+  margin: var(--sp-6) 0 var(--sp-8);
+  position: relative;
+  padding-left: var(--sp-6);
+  border-left: 2px solid var(--clr-gold);
+}
+.chef-name { font-family: var(--font-serif); font-style: italic; font-size: var(--fs-lg); color: var(--clr-white); margin-bottom: 2px; }
+.chef-role { font-size: var(--fs-xs); letter-spacing: 0.12em; color: var(--clr-text-dim); text-transform: uppercase; margin-bottom: var(--sp-6); }
+.chef-bio { color: var(--clr-text-sub); line-height: 2; margin-bottom: var(--sp-6); }
+
+@media (min-width: 900px) {
+  .chef-inner { grid-template-columns: 5fr 7fr; gap: var(--sp-16); }
+}
+
+/* ============================================================
+   7. Commitment (料理へのこだわり) — FEATURE-007 ジグザグ ×3
+   ============================================================ */
+.commit__block { padding: var(--sp-16) 0; border-top: 1px solid var(--clr-border-lt); }
+.commit__block:first-child { border-top: none; padding-top: 0; }
+
+.commit__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-10);
+  align-items: center;
+}
+.commit__image-wrap {
+  position: relative;
+  aspect-ratio: 6/7;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+.commit__image { width: 100%; height: 100%; object-fit: cover; }
+.commit__number {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--fs-sm);
+  color: var(--clr-gold);
+  letter-spacing: 0.1em;
+}
+.commit__heading { font-family: var(--font-jp); font-size: var(--fs-2xl); color: var(--clr-white); margin: var(--sp-3) 0 var(--sp-6); }
+.commit__body { color: var(--clr-text-sub); line-height: 2; margin-bottom: var(--sp-4); }
+
+@media (min-width: 768px) {
+  .commit__inner { grid-template-columns: 1fr 1fr; gap: clamp(3rem, 6vw, 6rem); }
+  .commit__block--reverse .commit__image-wrap { order: 2; }
+  .commit__block--reverse .commit__text { order: 1; }
+}
+
+/* ============================================================
+   8. Menu — CARD-035（メニュー・商品カード）
+   ============================================================ */
+.menu-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-8);
+}
+.menu-card {
+  background: var(--clr-charcoal-mid);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform var(--dur-base) var(--ease), border-color var(--dur-base) var(--ease);
+}
+.menu-card:hover { transform: translateY(-6px); border-color: var(--clr-gold); }
+.menu-card__image-wrap { position: relative; aspect-ratio: 4/3; overflow: hidden; }
+.menu-card__image { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s var(--ease); }
+.menu-card:hover .menu-card__image { transform: scale(1.06); }
+.menu-card__tag {
+  position: absolute; top: 14px; left: 14px;
+  font-size: var(--fs-xs); letter-spacing: 0.08em;
+  padding: 5px 12px; border-radius: 999px;
+  background: rgba(10,9,8,0.7); color: var(--clr-gold-light);
+  border: 1px solid var(--clr-border);
+}
+.menu-card__body { padding: var(--sp-6); }
+.menu-card__row { display: flex; justify-content: space-between; align-items: baseline; gap: var(--sp-4); margin-bottom: var(--sp-3); }
+.menu-card__name { font-family: var(--font-jp); font-size: var(--fs-lg); color: var(--clr-white); }
+.menu-card__price { font-family: var(--font-serif); font-size: var(--fs-lg); color: var(--clr-gold); white-space: nowrap; }
+.menu-card__desc { font-size: var(--fs-sm); color: var(--clr-text-sub); line-height: 1.85; }
+
+@media (min-width: 640px) {
+  .menu-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .menu-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ============================================================
+   9. Pricing / Course — PRICING-005（3プラン比較 中央強調型・松竹梅）
+   ============================================================ */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-8);
+  align-items: start;
+}
+.pricing-card {
+  background: var(--clr-charcoal-mid);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-10) var(--sp-8);
+  position: relative;
+}
+.pricing-card--featured {
+  background: linear-gradient(165deg, var(--clr-charcoal-lt), var(--clr-charcoal-mid));
+  border: 1px solid var(--clr-gold);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+}
+@media (min-width: 900px) {
+  .pricing-card--featured { transform: scale(1.05); z-index: 1; }
+}
+.pricing-card__badge {
+  position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--clr-gold-light), var(--clr-gold-dark));
+  color: var(--clr-black);
+  font-size: var(--fs-xs); font-weight: 700; letter-spacing: 0.08em;
+  padding: 6px 18px; border-radius: 999px;
+  white-space: nowrap;
+}
+.pricing-card__name { font-family: var(--font-jp); font-size: var(--fs-xl); color: var(--clr-white); margin-bottom: var(--sp-2); text-align: center; }
+.pricing-card__scene { text-align: center; font-size: var(--fs-xs); color: var(--clr-text-dim); letter-spacing: 0.06em; margin-bottom: var(--sp-6); }
+.pricing-card__price {
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: var(--fs-3xl);
+  color: var(--clr-gold-light);
+  margin-bottom: var(--sp-1);
+}
+.pricing-card__price small { font-family: var(--font-sans); font-size: var(--fs-sm); color: var(--clr-text-dim); }
+.pricing-card__note { text-align: center; font-size: var(--fs-xs); color: var(--clr-text-dim); margin-bottom: var(--sp-8); }
+.pricing-card__list { display: flex; flex-direction: column; gap: var(--sp-3); margin-bottom: var(--sp-8); }
+.pricing-card__list li { font-size: var(--fs-sm); color: var(--clr-text-sub); display: flex; gap: 10px; line-height: 1.7; }
+.pricing-card__list li::before { content: '—'; color: var(--clr-gold); flex-shrink: 0; }
+
+@media (min-width: 900px) {
+  .pricing-grid { grid-template-columns: repeat(3, 1fr); gap: var(--sp-6); }
+}
+
+/* ============================================================
+   10. Interior — FEATURE-060（マガジンレイアウト 大小画像混在）
+   ============================================================ */
+.interior-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: clamp(140px, 22vw, 220px);
+  gap: var(--sp-4);
+}
+.interior-item { position: relative; overflow: hidden; border-radius: var(--radius-md); }
+.interior-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s var(--ease); }
+.interior-item:hover img { transform: scale(1.05); }
+.interior-item__cap {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: var(--sp-4);
+  background: linear-gradient(0deg, rgba(10,9,8,0.85), transparent);
+  font-size: var(--fs-xs);
+  color: var(--clr-gold-light);
+  letter-spacing: 0.04em;
+}
+.interior-item--a { grid-column: span 2; grid-row: span 2; }
+.interior-item--b { grid-row: span 1; }
+.interior-item--c { grid-row: span 1; }
+.interior-item--d { grid-column: span 2; grid-row: span 1; }
+.interior-item--e { grid-row: span 2; }
+.interior-item--f { grid-row: span 2; }
+
+@media (min-width: 768px) {
+  .interior-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ============================================================
+   11. Voice — VOICE-001（3カード顔写真＋星）+ VOICE-028（総合評価）
+   ============================================================ */
+.voice__summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-16);
+  text-align: center;
+}
+.voice__stars { color: var(--clr-gold); font-size: var(--fs-xl); letter-spacing: 4px; }
+.voice__score { font-family: var(--font-serif); font-size: var(--fs-2xl); color: var(--clr-white); }
+.voice__count { font-size: var(--fs-sm); color: var(--clr-text-dim); }
+
+.voice-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-6);
+}
+.voice-card {
+  background: var(--clr-charcoal-mid);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-8);
+}
+.voice-card__stars { color: var(--clr-gold); letter-spacing: 3px; margin-bottom: var(--sp-4); font-size: var(--fs-sm); }
+.voice-card__text { color: var(--clr-text-sub); line-height: 1.9; margin-bottom: var(--sp-6); font-size: var(--fs-sm); }
+.voice-card__person { display: flex; align-items: center; gap: 12px; }
+.voice-card__avatar { width: 44px; height: 44px; border-radius: 50%; overflow: hidden; flex-shrink: 0; }
+.voice-card__avatar img { width: 100%; height: 100%; object-fit: cover; }
+.voice-card__name { font-size: var(--fs-sm); color: var(--clr-white); }
+.voice-card__meta { font-size: var(--fs-xs); color: var(--clr-text-dim); }
+
+@media (min-width: 768px) {
+  .voice-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ============================================================
+   12. Flow — FLOW-019（ジグザグ写真交互）
+   ============================================================ */
+.flow__block { padding: var(--sp-12) 0; }
+.flow__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-8);
+  align-items: center;
+}
+.flow__image-wrap { position: relative; aspect-ratio: 4/3; overflow: hidden; border-radius: var(--radius-lg); }
+.flow__image { width: 100%; height: 100%; object-fit: cover; }
+.flow__step-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; border-radius: 50%;
+  border: 1px solid var(--clr-gold); color: var(--clr-gold);
+  font-family: var(--font-serif); font-size: var(--fs-md);
+  margin-bottom: var(--sp-4);
+}
+.flow__heading { font-family: var(--font-jp); font-size: var(--fs-xl); color: var(--clr-white); margin-bottom: var(--sp-4); }
+.flow__body { color: var(--clr-text-sub); line-height: 1.9; }
+
+@media (min-width: 768px) {
+  .flow__inner { grid-template-columns: 1fr 1fr; gap: clamp(2.5rem, 5vw, 5rem); }
+  .flow__block--reverse .flow__image-wrap { order: 2; }
+  .flow__block--reverse .flow__text { order: 1; }
+}
+
+/* ============================================================
+   13. FAQ — FAQ-026（FAQ＋CTA統合）+ ACCORDION-001
+   ============================================================ */
+.faq-list { max-width: 780px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--clr-border-lt); }
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-6);
+  padding: var(--sp-6) 0;
+  font-family: var(--font-jp);
+  font-size: var(--fs-md);
+  color: var(--clr-white);
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item__icon {
+  flex-shrink: 0;
+  width: 28px; height: 28px;
+  display: grid; place-items: center;
+  border: 1px solid var(--clr-border);
+  border-radius: 50%;
+  color: var(--clr-gold);
+  transition: transform var(--dur-base) var(--ease);
+  font-size: 14px;
+}
+.faq-item[open] .faq-item__icon { transform: rotate(45deg); }
+.faq-item__answer { padding: 0 0 var(--sp-6); color: var(--clr-text-sub); line-height: 1.9; max-width: 66ch; }
+
+.faq__cta {
+  margin-top: var(--sp-16);
+  text-align: center;
+  padding: var(--sp-10);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  background: var(--clr-charcoal-mid);
+}
+.faq__cta p { color: var(--clr-text-sub); margin-bottom: var(--sp-6); }
+
+/* ============================================================
+   14. Access / Info — 独自設計
+   ============================================================ */
+.access-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-10);
+}
+.access-list { display: flex; flex-direction: column; gap: var(--sp-6); }
+.access-row { display: flex; gap: var(--sp-6); padding-bottom: var(--sp-6); border-bottom: 1px solid var(--clr-border-lt); }
+.access-row__label { flex: 0 0 108px; font-size: var(--fs-xs); letter-spacing: 0.08em; color: var(--clr-text-dim); text-transform: uppercase; padding-top: 2px; }
+.access-row__value { color: var(--clr-white); line-height: 1.8; }
+.access-row__value small { display: block; color: var(--clr-text-sub); font-size: var(--fs-sm); margin-top: 2px; }
+.access-map { position: relative; aspect-ratio: 4/3; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--clr-border); }
+.access-map iframe { width: 100%; height: 100%; border: 0; filter: grayscale(0.4) invert(0.92) contrast(0.9); }
+
+@media (min-width: 900px) {
+  .access-inner { grid-template-columns: 1fr 1fr; gap: var(--sp-16); }
+}
+
+/* ============================================================
+   15. Final CTA — CTA-025（背景写真オーバーレイ）
+   ============================================================ */
+.final-cta {
+  position: relative;
+  padding: clamp(5rem, 12vw, 10rem) 0;
+  text-align: center;
+  overflow: hidden;
+}
+.final-cta__media { position: absolute; inset: 0; z-index: 0; }
+.final-cta__media img { width: 100%; height: 100%; object-fit: cover; }
+.final-cta__media::after { content: ''; position: absolute; inset: 0; background: rgba(10,9,8,0.72); }
+.final-cta__inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
+.final-cta__title { font-family: var(--font-jp); font-size: var(--fs-3xl); color: var(--clr-white); margin-bottom: var(--sp-6); }
+.final-cta__sub { color: var(--clr-text-sub); margin-bottom: var(--sp-10); line-height: 1.9; }
+.final-cta__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--sp-4); margin-bottom: var(--sp-10); }
+.final-cta__badges { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--sp-6) var(--sp-8); }
+
+/* ============================================================
+   16. Fixed Mobile CTA — NAV-012 / BUTTON-035
+   ============================================================ */
+.fixed-cta {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 250;
+  display: flex;
+  gap: var(--sp-3);
+  padding: 10px var(--gutter);
+  padding-bottom: max(10px, env(safe-area-inset-bottom));
+  background: rgba(10,9,8,0.92);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid var(--clr-border);
+  transform: translateY(0);
+  transition: transform var(--dur-base) var(--ease);
+}
+.fixed-cta[data-hidden="true"] { transform: translateY(100%); }
+.fixed-cta__tel {
+  flex: 0 0 56px;
+  display: grid; place-items: center;
+  border: 1px solid var(--clr-border);
+  border-radius: 999px;
+  color: var(--clr-gold-light);
+  font-size: 20px;
+}
+.fixed-cta__btn { flex: 1; }
+
+@media (min-width: 1024px) {
+  .fixed-cta { display: none; }
+}
+
+/* ============================================================
+   17. Footer
+   ============================================================ */
+.footer { padding: var(--sp-20) 0 var(--sp-10); background: var(--clr-black); border-top: 1px solid var(--clr-border-lt); }
+.footer-inner { display: grid; grid-template-columns: 1fr; gap: var(--sp-10); margin-bottom: var(--sp-16); }
+.footer-brand__logo { font-family: var(--font-serif); font-style: italic; font-size: var(--fs-xl); color: var(--clr-white); margin-bottom: var(--sp-4); }
+.footer-brand__text { color: var(--clr-text-dim); font-size: var(--fs-sm); line-height: 1.9; max-width: 320px; }
+.footer-nav { display: flex; flex-direction: column; gap: var(--sp-3); }
+.footer-nav__title { font-size: var(--fs-xs); letter-spacing: 0.1em; color: var(--clr-gold); text-transform: uppercase; margin-bottom: var(--sp-3); }
+.footer-nav a { font-size: var(--fs-sm); color: var(--clr-text-sub); }
+.footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--sp-4); padding-top: var(--sp-8); border-top: 1px solid var(--clr-border-lt); font-size: var(--fs-xs); color: var(--clr-text-dim); }
+
+@media (min-width: 768px) {
+  .footer-inner { grid-template-columns: 2fr 1fr 1fr 1fr; }
+}
+
+/* ============================================================
+   18. Accessibility helpers
+   ============================================================ */
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}

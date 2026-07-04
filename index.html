@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="trattoria lucente（トラットリア・ルチェンテ）｜恵比寿の薪火イタリアン。完全予約制28席、ソムリエ在籍。記念日・デート・接待に。厳選した旬の食材を薪火で仕上げる特別なコース料理。">
+  <meta name="keywords" content="恵比寿,イタリアン,薪火,記念日,デート,接待,完全予約制,ソムリエ,ワイン,レストラン">
+  <meta property="og:title" content="trattoria lucente｜恵比寿の薪火イタリアン 完全予約制">
+  <meta property="og:description" content="特別な日を、もっと特別に。厳選した旬の食材を薪火で仕上げる、恵比寿の隠れ家イタリアン。">
+  <meta property="og:type" content="restaurant">
+  <meta property="og:image" content="assets/images/og-image.jpg">
+  <meta property="og:url" content="https://trattoria-lucente.example/">
+  <link rel="canonical" href="https://trattoria-lucente.example/">
+  <title>trattoria lucente｜恵比寿の薪火イタリアン 完全予約制28席</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Shippori+Mincho:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "trattoria lucente",
+    "servesCuisine": "Italian",
+    "priceRange": "¥¥¥¥",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "恵比寿",
+      "addressRegion": "東京都",
+      "addressCountry": "JP"
+    },
+    "telephone": "+81-3-0000-0000",
+    "openingHours": "Tu-Su 17:00-23:00",
+    "acceptsReservations": "True",
+    "description": "薪火で仕上げる本格イタリアン。完全予約制28席、ソムリエ在籍。記念日・デート・接待に選ばれる恵比寿の隠れ家レストラン。",
+    "url": "https://trattoria-lucente.example/"
+  }
+  </script>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">コンテンツへスキップ</a>
+
+  <!-- ============================================================
+       HEADER / NAV
+  ============================================================ -->
+  <header class="header" id="header" role="banner">
+    <div class="container header__inner">
+      <a href="#" class="header__logo" aria-label="trattoria lucente トップへ">
+        trattoria lucente
+        <span>Wood Fire Italian / Ebisu</span>
+      </a>
+
+      <nav class="header__nav" aria-label="メインナビゲーション">
+        <ul class="header__nav-list">
+          <li><a href="#concept" class="header__nav-link">コンセプト</a></li>
+          <li><a href="#commitment" class="header__nav-link">こだわり</a></li>
+          <li><a href="#menu" class="header__nav-link">メニュー</a></li>
+          <li><a href="#course" class="header__nav-link">コース</a></li>
+          <li><a href="#voice" class="header__nav-link">お客様の声</a></li>
+          <li><a href="#access" class="header__nav-link">アクセス</a></li>
+        </ul>
+      </nav>
+
+      <a href="https://reserve.trattoria-lucente.example/" class="btn btn--gold btn--sm header__cta" target="_blank" rel="noopener noreferrer">
+        WEBで予約する
+      </a>
+
+      <button class="header__hamburger" id="hamburgerBtn" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileMenu" aria-hidden="true">
+    <nav aria-label="モバイルナビゲーション">
+      <ul class="mobile-drawer__list">
+        <li><a href="#concept" class="mobile-drawer__link">コンセプト</a></li>
+        <li><a href="#chef" class="mobile-drawer__link">シェフの想い</a></li>
+        <li><a href="#commitment" class="mobile-drawer__link">こだわり</a></li>
+        <li><a href="#menu" class="mobile-drawer__link">メニュー</a></li>
+        <li><a href="#course" class="mobile-drawer__link">コース</a></li>
+        <li><a href="#interior" class="mobile-drawer__link">店内紹介</a></li>
+        <li><a href="#voice" class="mobile-drawer__link">お客様の声</a></li>
+        <li><a href="#flow" class="mobile-drawer__link">ご利用の流れ</a></li>
+        <li><a href="#faq" class="mobile-drawer__link">よくある質問</a></li>
+        <li><a href="#access" class="mobile-drawer__link">アクセス</a></li>
+      </ul>
+    </nav>
+    <a href="https://reserve.trattoria-lucente.example/" class="btn btn--gold btn--full" target="_blank" rel="noopener noreferrer">
+      WEBで予約する
+    </a>
+  </div>
+  <div class="mobile-drawer__overlay" id="drawerOverlay" aria-hidden="true"></div>
+
+  <main id="main-content">
+
+    <!-- ============================================================
+         1. HERO — HERO-003（フルスクリーン写真＋ダークグラデーションオーバーレイ）
+    ============================================================ -->
+    <section class="hero">
+      <div class="hero__media">
+        <img
+          src="assets/images/hero-main.jpg"
+          alt="薪火で仕上げるtrattoria lucenteのメインディッシュ。炎の揺らめきと湯気が立ちのぼる一皿"
+          fetchpriority="high"
+          width="1920" height="1080"
+        >
+      </div>
+      <div class="container hero__inner">
+        <p class="hero__eyebrow">EBISU — WOOD FIRE ITALIAN</p>
+        <h1 class="hero__title">特別な日を、<br>もっと特別に。</h1>
+        <p class="hero__sub">
+          薪火が香る、静かな夜。恵比寿の隠れ家イタリアンで、大切な人と過ごすひととき。厳選した旬の食材を、炎だけで仕上げる一皿を。
+        </p>
+        <div class="hero__actions">
+          <a href="https://reserve.trattoria-lucente.example/" class="btn btn--gold" target="_blank" rel="noopener noreferrer">WEBで予約する</a>
+          <a href="#course" class="btn btn--ghost">コースを見る</a>
+        </div>
+        <div class="hero__meta">
+          <div class="hero__meta-item"><strong>17:00 - 23:00</strong>営業時間（月曜定休）</div>
+          <div class="hero__meta-item"><strong>完全予約制</strong>全28席・カウンター有</div>
+          <div class="hero__meta-item"><strong>ソムリエ在籍</strong>厳選ワインペアリング</div>
+        </div>
+      </div>
+      <div class="hero__scroll" aria-hidden="true">
+        <span class="hero__scroll-line"></span>
+        SCROLL
+      </div>
+    </section>
+
+    <!-- ============================================================
+         2. CONCEPT — FEATURE-035 + FEATURE-041
+    ============================================================ -->
+    <section id="concept" class="section">
+      <div class="container">
+        <div class="concept-visual r">
+          <img
+            src="assets/images/concept-dining.jpg"
+            alt="キャンドルの灯る店内でワインを楽しむカップル。落ち着いた雰囲気の中で特別な時間を過ごす様子"
+            loading="lazy" width="1200" height="800"
+          >
+          <div class="concept-visual__text">
+            <p class="label">Concept</p>
+            <p class="concept-visual__quote">
+              厳選した旬の食材を、薪火の力だけで仕上げる。<br>
+              大切な人と過ごす時間を、もっと特別なものに。
+            </p>
+          </div>
+        </div>
+
+        <div class="section-head r">
+          <p class="label">Why Lucente</p>
+          <h2 class="section-title">選ばれる、4つの理由</h2>
+          <p class="section-lead">
+            デート・記念日・誕生日・接待。大切な時間だからこそ、料理と空間の両方で応えたい。trattoria lucenteが大切にしていることです。
+          </p>
+        </div>
+
+        <div class="strengths">
+          <div class="strength-card r">
+            <div class="strength-card__icon" aria-hidden="true">🔥</div>
+            <h3 class="strength-card__title">薪火調理</h3>
+            <p class="strength-card__text">高温の薪窯と炭火で、素材本来の香りと旨みを引き出します。</p>
+          </div>
+          <div class="strength-card r d1">
+            <div class="strength-card__icon" aria-hidden="true">🍳</div>
+            <h3 class="strength-card__title">オープンキッチン</h3>
+            <p class="strength-card__text">炎が踊る調理風景をカウンター越しに。目でも楽しめる臨場感。</p>
+          </div>
+          <div class="strength-card r d2">
+            <div class="strength-card__icon" aria-hidden="true">🍷</div>
+            <h3 class="strength-card__title">ソムリエ在籍</h3>
+            <p class="strength-card__text">料理に寄り添う一杯を、専属ソムリエが提案いたします。</p>
+          </div>
+          <div class="strength-card r d3">
+            <div class="strength-card__icon" aria-hidden="true">🕯️</div>
+            <h3 class="strength-card__title">完全予約制</h3>
+            <p class="strength-card__text">全28席、落ち着いた空間で。特別な時間をゆったりと。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         3. CHEF — PROFILE-048
+    ============================================================ -->
+    <section id="chef" class="section section--alt">
+      <div class="container">
+        <div class="chef-inner">
+          <div class="chef-visual r">
+            <img
+              src="assets/images/chef-cooking.jpg"
+              alt="薪窯の炎を見つめながら調理するシェフの手元。真剣な眼差しと立ちのぼる炎"
+              loading="lazy" width="800" height="1000"
+            >
+          </div>
+          <div class="r d1">
+            <p class="label">Our Chef</p>
+            <h2 class="section-title">シェフの想い</h2>
+            <p class="chef-quote">
+              「火と対話しながら、素材が一番美しい表情を見せる瞬間を待つ。それが薪火調理の醍醐味です。」
+            </p>
+            <p class="chef-name">シェフ 氏名（仮）</p>
+            <p class="chef-role">Executive Chef</p>
+            <p class="chef-bio">
+              イタリア各地の郷土料理と薪火調理を学び、素材の産地に足を運びながら仕入れを続けてきました。旬の食材が持つ力を最大限に引き出すため、調味は最小限に。炎の温度、薪の種類、焼き上がるまでの時間——すべてに理由があります。
+            </p>
+            <p class="chef-bio">
+              「特別な日を、もっと特別に。」その日のために選ばれる一皿を、心を込めてお作りします。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4. COMMITMENT（料理へのこだわり）— FEATURE-007 ×3
+    ============================================================ -->
+    <section id="commitment" class="section">
+      <div class="container">
+        <div class="section-head r">
+          <p class="label">Commitment</p>
+          <h2 class="section-title">料理へのこだわり</h2>
+          <p class="section-lead">薪火・食材・ワイン。3つのこだわりが、trattoria lucenteの一皿を作ります。</p>
+        </div>
+      </div>
+
+      <div class="commit__block">
+        <div class="container commit__inner r">
+          <div class="commit__image-wrap">
+            <img
+              src="assets/images/commit-firewood.jpg"
+              alt="薪窯の中で燃え盛る炎と、その中で焼かれる肉料理のクローズアップ"
+              loading="lazy" width="700" height="820"
+            >
+          </div>
+          <div class="commit__text">
+            <p class="commit__number">01</p>
+            <h3 class="commit__heading">薪火調理</h3>
+            <p class="commit__body">
+              700度近い薪窯の炎で一気に焼き上げることで、外は香ばしく中はしっとりと。炭火とは異なる、薪ならではの香りが料理に深みを与えます。
+            </p>
+            <p class="commit__body">
+              火加減はすべて感覚で調整。素材ごとに異なる炎との距離・時間を見極めることが、シェフの腕の見せどころです。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="commit__block commit__block--reverse">
+        <div class="container commit__inner r">
+          <div class="commit__image-wrap">
+            <img
+              src="assets/images/commit-ingredients.jpg"
+              alt="市場から届いたばかりの旬の野菜と魚介類。木箱に並べられた新鮮な食材"
+              loading="lazy" width="700" height="820"
+            >
+          </div>
+          <div class="commit__text">
+            <p class="commit__number">02</p>
+            <h3 class="commit__heading">厳選食材</h3>
+            <p class="commit__body">
+              全国の契約農家・漁港から届く旬の食材だけを使用。市場が閉まる日は仕入れを行わないほど、鮮度にこだわっています。
+            </p>
+            <p class="commit__body">
+              季節ごとに変わるメニューは、その時期にしか味わえない一皿。何度訪れても新しい発見があります。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="commit__block">
+        <div class="container commit__inner r">
+          <div class="commit__image-wrap">
+            <img
+              src="assets/images/commit-wine.jpg"
+              alt="ソムリエが赤ワインをグラスに注ぐ様子。薄暗い店内でグラスに反射する暖色の照明"
+              loading="lazy" width="700" height="820"
+            >
+          </div>
+          <div class="commit__text">
+            <p class="commit__number">03</p>
+            <h3 class="commit__heading">ソムリエ厳選ワイン</h3>
+            <p class="commit__body">
+              イタリア各地から届く自然派ワインを中心に、常時60種以上を用意。専属ソムリエが、その日の料理とお客様の好みに合わせて一杯をご提案します。
+            </p>
+            <p class="commit__body">
+              グラスから特別な一本まで。ワイン好きの方にも満足いただける品揃えです。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         5. MENU（おすすめメニュー）— CARD-035
+    ============================================================ -->
+    <section id="menu" class="section section--alt">
+      <div class="container">
+        <div class="section-head r">
+          <p class="label">Signature Menu</p>
+          <h2 class="section-title">おすすめメニュー</h2>
+          <p class="section-lead">薪火が生み出す香りと、シズル感あふれる一皿の数々。</p>
+        </div>
+
+        <div class="menu-grid">
+          <article class="menu-card r">
+            <div class="menu-card__image-wrap">
+              <img class="menu-card__image" src="assets/images/menu-chicken.jpg" alt="仔鶏の薪火コンソメ仕立て。黒い皿に上品に盛り付けられた一皿" loading="lazy" width="600" height="450">
+              <span class="menu-card__tag">薪火仕立て</span>
+            </div>
+            <div class="menu-card__body">
+              <div class="menu-card__row">
+                <h3 class="menu-card__name">仔鶏の薪火コンソメ仕立て</h3>
+                <span class="menu-card__price">¥3,800</span>
+              </div>
+              <p class="menu-card__desc">じっくり回しながら焼き上げた、皮パリ・中ジューシーな一皿。</p>
+            </div>
+          </article>
+
+          <article class="menu-card r d1">
+            <div class="menu-card__image-wrap">
+              <img class="menu-card__image" src="assets/images/menu-steak.jpg" alt="厚切りビステッカ。断面から肉汁が滴る様子" loading="lazy" width="600" height="450">
+              <span class="menu-card__tag">炭火焼き</span>
+            </div>
+            <div class="menu-card__body">
+              <div class="menu-card__row">
+                <h3 class="menu-card__name">特製ビステッカ（厚切り）</h3>
+                <span class="menu-card__price">¥2,400<small>/100g</small></span>
+              </div>
+              <p class="menu-card__desc">炭火で表面を香ばしく、中はロゼ色に仕上げた贅沢な一皿。</p>
+            </div>
+          </article>
+
+          <article class="menu-card r d2">
+            <div class="menu-card__image-wrap">
+              <img class="menu-card__image" src="assets/images/menu-pasta.jpg" alt="海の幸のスパゲッティ。渡り蟹・ムール貝・車海老をトマトソースで" loading="lazy" width="600" height="450">
+              <span class="menu-card__tag">自家製パスタ</span>
+            </div>
+            <div class="menu-card__body">
+              <div class="menu-card__row">
+                <h3 class="menu-card__name">海の幸のスパゲッティ</h3>
+                <span class="menu-card__price">¥3,200</span>
+              </div>
+              <p class="menu-card__desc">渡り蟹・ムール貝・車海老を濃厚なトマトソースで絡めた自家製生パスタ。</p>
+            </div>
+          </article>
+
+          <article class="menu-card r">
+            <div class="menu-card__image-wrap">
+              <img class="menu-card__image" src="assets/images/menu-pizza.jpg" alt="薪窯焼き 季節野菜と自家製モッツァレラのピッツァ" loading="lazy" width="600" height="450">
+              <span class="menu-card__tag">薪窯ピッツァ</span>
+            </div>
+            <div class="menu-card__body">
+              <div class="menu-card__row">
+                <h3 class="menu-card__name">季節野菜と自家製モッツァレラのピッツァ</h3>
+                <span class="menu-card__price">¥2,800</span>
+              </div>
+              <p class="menu-card__desc">高温の薪窯で一気に焼き上げた、もちもち食感の生地。</p>
+            </div>
+          </article>
+
+          <article class="menu-card r d1">
+            <div class="menu-card__image-wrap">
+              <img class="menu-card__image" src="assets/images/menu-antipasti.jpg" alt="本日の前菜盛り合わせ5種。彩り豊かな旬の食材が並ぶ" loading="lazy" width="600" height="450">
+              <span class="menu-card__tag">前菜</span>
+            </div>
+            <div class="menu-card__body">
+              <div class="menu-card__row">
+                <h3 class="menu-card__name">本日の前菜盛り合わせ（5種）</h3>
+                <span class="menu-card__price">¥3,500</span>
+              </div>
+              <p class="menu-card__desc">旬の食材を使った、その日だけの特別な前菜プレート。</p>
+            </div>
+          </article>
+
+          <article class="menu-card r d2">
+            <div class="menu-card__image-wrap">
+              <img class="menu-card__image" src="assets/images/menu-dolce.jpg" alt="季節のドルチェ盛り合わせ。暖色照明の下で艶やかに輝くデザート" loading="lazy" width="600" height="450">
+              <span class="menu-card__tag">ドルチェ</span>
+            </div>
+            <div class="menu-card__body">
+              <div class="menu-card__row">
+                <h3 class="menu-card__name">季節のドルチェ盛り合わせ</h3>
+                <span class="menu-card__price">¥1,800</span>
+              </div>
+              <p class="menu-card__desc">記念日にはメッセージプレートのご用意も可能です。</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         6. COURSE（コース紹介）— PRICING-005
+    ============================================================ -->
+    <section id="course" class="section">
+      <div class="container">
+        <div class="section-head r">
+          <p class="label">Course</p>
+          <h2 class="section-title">コース紹介</h2>
+          <p class="section-lead">シーンに合わせて選べる3つのコース。すべてWEBからご予約いただけます。</p>
+        </div>
+
+        <div class="pricing-grid">
+          <div class="pricing-card r">
+            <h3 class="pricing-card__name">Casual Date Course</h3>
+            <p class="pricing-card__scene">デート・ふたりの時間に</p>
+            <p class="pricing-card__price">¥9,800<small>/人（税込・サービス料別）</small></p>
+            <p class="pricing-card__note">2名様〜・要予約</p>
+            <ul class="pricing-card__list">
+              <li>前菜盛り合わせ</li>
+              <li>本日のパスタ</li>
+              <li>薪火メイン料理（魚 or 肉）</li>
+              <li>ドルチェ</li>
+              <li>グラスワイン1杯付き</li>
+            </ul>
+            <a href="https://reserve.trattoria-lucente.example/" class="btn btn--outline-gold btn--full" target="_blank" rel="noopener noreferrer">WEBで予約する</a>
+          </div>
+
+          <div class="pricing-card pricing-card--featured r d1">
+            <span class="pricing-card__badge">人気No.1</span>
+            <h3 class="pricing-card__name">Anniversary Course</h3>
+            <p class="pricing-card__scene">記念日・誕生日に</p>
+            <p class="pricing-card__price">¥16,500<small>/人（税込・サービス料別）</small></p>
+            <p class="pricing-card__note">2名様〜・要予約・前日までキャンセル無料</p>
+            <ul class="pricing-card__list">
+              <li>乾杯スパークリングワイン</li>
+              <li>本日の前菜盛り合わせ</li>
+              <li>自家製生パスタ</li>
+              <li>薪火メイン料理2品（魚・肉）</li>
+              <li>記念日デザートプレート（メッセージ入り）</li>
+              <li>ソムリエ厳選ペアリング3杯</li>
+            </ul>
+            <a href="https://reserve.trattoria-lucente.example/" class="btn btn--gold btn--full" target="_blank" rel="noopener noreferrer">WEBで予約する</a>
+          </div>
+
+          <div class="pricing-card r d2">
+            <h3 class="pricing-card__name">Chef's Omakase Course</h3>
+            <p class="pricing-card__scene">接待・特別なおもてなしに</p>
+            <p class="pricing-card__price">¥28,000<small>/人（税込・サービス料別）</small></p>
+            <p class="pricing-card__note">2名様〜・要予約</p>
+            <ul class="pricing-card__list">
+              <li>シェフお任せ全9品</li>
+              <li>厳選食材を使った特別メニュー</li>
+              <li>ソムリエ厳選ワインペアリング5杯</li>
+              <li>記念撮影サポート</li>
+            </ul>
+            <a href="https://reserve.trattoria-lucente.example/" class="btn btn--outline-gold btn--full" target="_blank" rel="noopener noreferrer">WEBで予約する</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         7. INTERIOR（店内紹介）— FEATURE-060
+    ============================================================ -->
+    <section id="interior" class="section section--alt">
+      <div class="container">
+        <div class="section-head r">
+          <p class="label">Interior</p>
+          <h2 class="section-title">店内紹介</h2>
+          <p class="section-lead">落ち着いた照明と木の質感に包まれた、全28席の空間。</p>
+        </div>
+
+        <div class="interior-grid">
+          <div class="interior-item interior-item--a r">
+            <img src="assets/images/interior-main.jpg" alt="暖色照明に照らされた店内全景。木目のテーブルとゆったりとした席配置" loading="lazy" width="800" height="800">
+            <span class="interior-item__cap">店内全景</span>
+          </div>
+          <div class="interior-item interior-item--b r d1">
+            <img src="assets/images/interior-counter.jpg" alt="銅製のペンダントライトが灯る温かみのあるカウンター" loading="lazy" width="400" height="220">
+            <span class="interior-item__cap">カウンター</span>
+          </div>
+          <div class="interior-item interior-item--c r d2">
+            <img src="assets/images/interior-kitchen.jpg" alt="炎が上がるオープンキッチンで調理するシェフ" loading="lazy" width="400" height="220">
+            <span class="interior-item__cap">オープンキッチン</span>
+          </div>
+          <div class="interior-item interior-item--d r">
+            <img src="assets/images/interior-table.jpg" alt="キャンドルが灯るテーブル席。記念日利用にも最適な落ち着いた雰囲気" loading="lazy" width="800" height="400">
+            <span class="interior-item__cap">テーブル席</span>
+          </div>
+          <div class="interior-item interior-item--e r d1">
+            <img src="assets/images/interior-cellar.jpg" alt="厳選ワインが並ぶワインセラー" loading="lazy" width="400" height="440">
+            <span class="interior-item__cap">ワインセラー</span>
+          </div>
+          <div class="interior-item interior-item--f r d2">
+            <img src="assets/images/interior-entrance.jpg" alt="落ち着いた木製の扉が印象的な店舗エントランス" loading="lazy" width="400" height="440">
+            <span class="interior-item__cap">エントランス</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         8. VOICE（お客様の声）— VOICE-001 + VOICE-028
+    ============================================================ -->
+    <section id="voice" class="section">
+      <div class="container">
+        <div class="section-head r">
+          <p class="label">Voice</p>
+          <h2 class="section-title">お客様の声</h2>
+        </div>
+
+        <div class="voice__summary r">
+          <span class="voice__stars" aria-hidden="true">★★★★★</span>
+          <span class="voice__score">4.9<span class="sr-only">5点満点中</span></span>
+          <span class="voice__count">214件のご予約者様の声</span>
+        </div>
+
+        <div class="voice-grid">
+          <article class="voice-card r">
+            <div class="voice-card__stars" aria-label="星5つ">★★★★★</div>
+            <p class="voice-card__text">結婚記念日に利用しました。薪火の香りと落ち着いた照明で、特別な時間を過ごせました。デザートにメッセージを入れていただき、妻もとても喜んでいました。</p>
+            <div class="voice-card__person">
+              <div class="voice-card__avatar"><img src="assets/images/voice-01.jpg" alt="" loading="lazy" width="88" height="88"></div>
+              <div>
+                <p class="voice-card__name">K.Tさま</p>
+                <p class="voice-card__meta">40代・記念日利用</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="voice-card r d1">
+            <div class="voice-card__stars" aria-label="星5つ">★★★★★</div>
+            <p class="voice-card__text">取引先との会食で利用。カウンター越しに見えるオープンキッチンが会話のきっかけになり、ソムリエさんのワイン選びも的確で、大変満足いただけました。</p>
+            <div class="voice-card__person">
+              <div class="voice-card__avatar"><img src="assets/images/voice-02.jpg" alt="" loading="lazy" width="88" height="88"></div>
+              <div>
+                <p class="voice-card__name">S.Mさま</p>
+                <p class="voice-card__meta">50代・接待利用</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="voice-card r d2">
+            <div class="voice-card__stars" aria-label="星5つ">★★★★★</div>
+            <p class="voice-card__text">彼女の誕生日デートで。薪火焼きのお肉が本当に美味しくて、雰囲気も申し分なし。完全予約制で他のお客様を気にせず過ごせたのも良かったです。</p>
+            <div class="voice-card__person">
+              <div class="voice-card__avatar"><img src="assets/images/voice-03.jpg" alt="" loading="lazy" width="88" height="88"></div>
+              <div>
+                <p class="voice-card__name">R.Nさま</p>
+                <p class="voice-card__meta">20代・誕生日利用</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         9. FLOW（ご利用の流れ）— FLOW-019
+    ============================================================ -->
+    <section id="flow" class="section section--alt">
+      <div class="container">
+        <div class="section-head r">
+          <p class="label">Flow</p>
+          <h2 class="section-title">ご利用の流れ</h2>
+          <p class="section-lead">ご予約から当日まで、初めての方にも分かりやすくご案内します。</p>
+        </div>
+      </div>
+
+      <div class="flow__block">
+        <div class="container flow__inner r">
+          <div class="flow__image-wrap">
+            <img src="assets/images/flow-booking.jpg" alt="スマートフォンを操作しながら予約を検討する様子" loading="lazy" width="600" height="450">
+          </div>
+          <div class="flow__text">
+            <span class="flow__step-num">01</span>
+            <h3 class="flow__heading">WEBで予約</h3>
+            <p class="flow__body">24時間いつでも、日時・人数・コースを選んで簡単予約。記念日など特別なご要望も予約時に承ります。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow__block flow__block--reverse">
+        <div class="container flow__inner r">
+          <div class="flow__image-wrap">
+            <img src="assets/images/flow-welcome.jpg" alt="スタッフが笑顔でお料理を運び、お客様をおもてなしする様子" loading="lazy" width="600" height="450">
+          </div>
+          <div class="flow__text">
+            <span class="flow__step-num">02</span>
+            <h3 class="flow__heading">ご来店・お席へご案内</h3>
+            <p class="flow__body">完全予約制なので、お待たせすることなくご案内。着席後はスタッフが丁寧にお料理をお運びします。カウンター席・テーブル席はご予約時にご指定いただけます。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow__block">
+        <div class="container flow__inner r">
+          <div class="flow__image-wrap">
+            <img src="assets/images/flow-dining.jpg" alt="赤ワインのグラスを傾ける二人の手元。落ち着いたひとときの様子" loading="lazy" width="600" height="450">
+          </div>
+          <div class="flow__text">
+            <span class="flow__step-num">03</span>
+            <h3 class="flow__heading">薪火の一皿とワインを堪能</h3>
+            <p class="flow__body">ソムリエが料理に合わせた一杯をご提案。薪火が生む香りと共に、コースをゆっくりとお楽しみください。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow__block flow__block--reverse">
+        <div class="container flow__inner r">
+          <div class="flow__image-wrap">
+            <img src="assets/images/flow-farewell.jpg" alt="料理を前に笑顔で乾杯するカップル" loading="lazy" width="600" height="450">
+          </div>
+          <div class="flow__text">
+            <span class="flow__step-num">04</span>
+            <h3 class="flow__heading">特別なひとときの締めくくり</h3>
+            <p class="flow__body">記念日ご利用の場合はメッセージ入りデザートプレートをご用意。大切な時間の最後まで、お手伝いいたします。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         10. FAQ — FAQ-026 + ACCORDION-001
+    ============================================================ -->
+    <section id="faq" class="section">
+      <div class="container">
+        <div class="section-head r">
+          <p class="label">FAQ</p>
+          <h2 class="section-title">よくある質問</h2>
+        </div>
+
+        <div class="faq-list r">
+          <details class="faq-item">
+            <summary><span>ドレスコードはありますか？</span><span class="faq-item__icon" aria-hidden="true">+</span></summary>
+            <div class="faq-item__answer">厳格なドレスコードはございませんが、記念日や接待利用のお客様が多いため、ジャケットなどきれいめな服装を推奨しております。</div>
+          </details>
+          <details class="faq-item">
+            <summary><span>お子様連れは可能ですか？</span><span class="faq-item__icon" aria-hidden="true">+</span></summary>
+            <div class="faq-item__answer">落ち着いた雰囲気を大切にしているため、小学生以上のお子様からのご利用を推奨しております。詳しくはご予約時にご相談ください。</div>
+          </details>
+          <details class="faq-item">
+            <summary><span>食物アレルギーの対応は可能ですか？</span><span class="faq-item__icon" aria-hidden="true">+</span></summary>
+            <div class="faq-item__answer">可能な限り対応いたします。ご予約時の備考欄、またはお電話にて食材のアレルギーをお知らせください。</div>
+          </details>
+          <details class="faq-item">
+            <summary><span>キャンセルポリシーを教えてください</span><span class="faq-item__icon" aria-hidden="true">+</span></summary>
+            <div class="faq-item__answer">コースご予約の場合、前日18時までのご連絡でキャンセル料は発生しません。当日キャンセルはコース料金の100%を頂戴しております。</div>
+          </details>
+          <details class="faq-item">
+            <summary><span>駐車場はありますか？</span><span class="faq-item__icon" aria-hidden="true">+</span></summary>
+            <div class="faq-item__answer">専用駐車場のご用意はございません。恵比寿駅周辺のコインパーキングをご利用ください。</div>
+          </details>
+          <details class="faq-item">
+            <summary><span>記念日のサプライズ演出はお願いできますか？</span><span class="faq-item__icon" aria-hidden="true">+</span></summary>
+            <div class="faq-item__answer">メッセージ入りデザートプレートやサプライズケーキのご用意が可能です。ご予約時に備考欄へご希望をお知らせください。</div>
+          </details>
+          <details class="faq-item">
+            <summary><span>ワインの持ち込みはできますか？</span><span class="faq-item__icon" aria-hidden="true">+</span></summary>
+            <div class="faq-item__answer">持ち込み料金（1本 ¥3,300）にて承っております。事前にお電話でご相談ください。</div>
+          </details>
+        </div>
+
+        <div class="faq__cta r">
+          <p>その他ご不明な点は、お電話にてお気軽にお問い合わせください。</p>
+          <a href="tel:+81300000000" class="btn btn--outline-gold">お電話でお問い合わせ</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         11. ACCESS（店舗情報・アクセス）— 独自設計
+    ============================================================ -->
+    <section id="access" class="section section--alt">
+      <div class="container">
+        <div class="section-head r">
+          <p class="label">Access</p>
+          <h2 class="section-title">店舗情報・アクセス</h2>
+        </div>
+
+        <div class="access-inner">
+          <div class="access-list r">
+            <div class="access-row">
+              <span class="access-row__label">店名</span>
+              <span class="access-row__value">trattoria lucente（トラットリア・ルチェンテ）</span>
+            </div>
+            <div class="access-row">
+              <span class="access-row__label">所在地</span>
+              <span class="access-row__value">東京都渋谷区恵比寿 ○-○-○ ○○ビル1F<small>詳細住所はご予約確定後にご案内します</small></span>
+            </div>
+            <div class="access-row">
+              <span class="access-row__label">最寄駅</span>
+              <span class="access-row__value">JR山手線・東京メトロ日比谷線「恵比寿駅」より徒歩5分</span>
+            </div>
+            <div class="access-row">
+              <span class="access-row__label">営業時間</span>
+              <span class="access-row__value">17:00 - 23:00<small>ディナーのみ・完全予約制</small></span>
+            </div>
+            <div class="access-row">
+              <span class="access-row__label">定休日</span>
+              <span class="access-row__value">月曜日</span>
+            </div>
+            <div class="access-row">
+              <span class="access-row__label">電話番号</span>
+              <span class="access-row__value"><a href="tel:+81300000000">03-0000-0000</a></span>
+            </div>
+            <div class="access-row">
+              <span class="access-row__label">席数</span>
+              <span class="access-row__value">28席（カウンター・テーブル）<small>完全予約制</small></span>
+            </div>
+            <div class="access-row">
+              <span class="access-row__label">駐車場</span>
+              <span class="access-row__value">専用駐車場なし<small>近隣コインパーキングをご利用ください</small></span>
+            </div>
+          </div>
+
+          <div class="access-map r d1">
+            <iframe
+              src="https://www.google.com/maps?q=%E6%81%B5%E6%AF%94%E5%AF%BF%E9%A7%85&output=embed"
+              title="trattoria lucente 周辺地図（恵比寿駅）"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         12. FINAL CTA — CTA-025
+    ============================================================ -->
+    <section id="reserve" class="final-cta">
+      <div class="final-cta__media" aria-hidden="true">
+        <img src="assets/images/cta-bg.jpg" alt="">
+      </div>
+      <div class="container final-cta__inner">
+        <h2 class="final-cta__title">大切なその日を、<br>trattoria lucenteで。</h2>
+        <p class="final-cta__sub">薪火が香る特別な夜を、大切な人と。ご予約は24時間WEBから承っております。</p>
+        <div class="final-cta__actions">
+          <a href="https://reserve.trattoria-lucente.example/" class="btn btn--gold" target="_blank" rel="noopener noreferrer">WEBで予約する</a>
+          <a href="tel:+81300000000" class="btn btn--ghost">お電話でのご予約</a>
+        </div>
+        <div class="final-cta__badges">
+          <span class="badge-check">完全予約制・28席限定</span>
+          <span class="badge-check">ソムリエ在籍</span>
+          <span class="badge-check">記念日演出対応</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Fixed Mobile CTA -->
+  <div class="fixed-cta" id="fixedCta">
+    <a href="tel:+81300000000" class="fixed-cta__tel" aria-label="電話でお問い合わせ">☎</a>
+    <a href="https://reserve.trattoria-lucente.example/" class="btn btn--gold fixed-cta__btn" target="_blank" rel="noopener noreferrer">WEBで予約する</a>
+  </div>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <p class="footer-brand__logo">trattoria lucente</p>
+          <p class="footer-brand__text">恵比寿の薪火イタリアン。厳選した旬の食材を薪火で仕上げる、完全予約制の隠れ家レストラン。</p>
+        </div>
+        <div class="footer-nav">
+          <p class="footer-nav__title">Menu</p>
+          <a href="#concept">コンセプト</a>
+          <a href="#menu">おすすめメニュー</a>
+          <a href="#course">コース紹介</a>
+        </div>
+        <div class="footer-nav">
+          <p class="footer-nav__title">Guide</p>
+          <a href="#flow">ご利用の流れ</a>
+          <a href="#faq">よくある質問</a>
+          <a href="#access">アクセス</a>
+        </div>
+        <div class="footer-nav">
+          <p class="footer-nav__title">Contact</p>
+          <a href="tel:+81300000000">03-0000-0000</a>
+          <a href="https://reserve.trattoria-lucente.example/" target="_blank" rel="noopener noreferrer">WEBで予約する</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>〒150-0013 東京都渋谷区恵比寿 ○-○-○</span>
+        <span>&copy; 2026 trattoria lucente. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
